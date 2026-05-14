@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行程規劃：台北 → 彰化 → 嘉義</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei";
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .day-title {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .day-title h2 {
+            margin: 0;
+        }
+
+        .day-number {
+            background: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ddd;
+        }
+
+        .event {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .time {
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: block;
+            margin: 2px 0;
+        }
+
+        .desc {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .highlight-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .option-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+            background: #fafafa;
+        }
+
+        .option-card h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>嘉義親子二日遊</h1>
+        <p>台北出發 ‧ 挖蛤蜊 ‧ 嘉義慢活</p>
+    </header>
+
+    <div class="day-card">
+        <div class="day-title">
+            <div class="day-number">1</div>
+            <h2>Day 1：出發與王功體驗</h2>
+        </div>
+        
+        <div class="timeline">
+            <div class="event">
+                <span class="time">07:00</span>
+                <span class="title">台北出發</span>
+                <span class="desc">不用太早趕路，王功下午才開始。</span>
+            </div>
+
+            <div class="event">
+                <span class="time">10:00</span>
+                <span class="title">中繼休息：清水服務區</span>
+                <span class="desc">停 40～60 分鐘，讓小孩下車走走、舒緩坐車疲勞。</span>
+            </div>
+
+            <div class="event">
+                <span class="time">11:30 - 13:00</span>
+                <span class="title">鹿港老街吃午餐</span>
+                <span class="desc">鹿港好停車、選擇多，適合小孩散步。簡單逛逛即可。</span>
+            </div>
+
+            <div class="event">
+                <span class="time">13:30 - 17:00</span>
+                <span class="title">王功漁港：挖蛤蜊體驗</span>
+                <div class="highlight-box">
+                    14:00 正式開始挖蛤蜊。幼兒通常玩 2-2.5 小時就很滿足。
+                </div>
+            </div>
+
+            <div class="event">
+                <span class="time">17:00 - 19:00</span>
+                <span class="title">前往嘉義</span>
+                <span class="desc">車程約 1.5 小時，適合小朋友在車上小睡。</span>
+            </div>
+
+            <div class="event">
+                <span class="time">19:00</span>
+                <span class="title">入住：鉅陞嘉義亮點旅店</span>
+                <span class="desc">抵達飯店，享受輕鬆的夜晚。</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-title">
+            <div class="day-number">2</div>
+            <h2>Day 2：嘉義悠閒玩</h2>
+        </div>
+
+        <p>上午建議行程（二選一）：</p>
+        
+        <div class="options-grid">
+            <div class="option-card">
+                <h3>⚡ 放電型：Chiayi Park</h3>
+                <ul>
+                    <li>完全免費</li>
+                    <li>小孩超能跑</li>
+                    <li>無門票時間壓力</li>
+                </ul>
+            </div>
+            <div class="option-card">
+                <h3>🐱 動物型：萌寵村親子樂園</h3>
+                <ul>
+                    <li>3 歲小孩通常超愛</li>
+                    <li>行程相對輕鬆</li>
+                    <li>拍照非常好看</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline" style="margin-top: 25px;">
+            <div class="event">
+                <span class="time">12:00</span>
+                <span class="title">午餐時間</span>
+                <span class="desc">在嘉義市區品嚐美食。</span>
+            </div>
+
+            <div class="event">
+                <span class="time">13:30 - 14:00</span>
+                <span class="title">北返台北</span>
+                <span class="desc">帶著滿滿回憶回家，不會太晚到家。</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>💡 整體規劃：去程精神好排重體力王功，第二天輕鬆玩不趕時間。</p>
+        <p>© 2026 行程規劃工具</p>
+    </div>
+</div>
+
+</body>
+</html>
