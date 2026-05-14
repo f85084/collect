@@ -131,9 +131,34 @@
             margin: 2px 0;
         }
 
+        .address {
+            font-size: 0.85rem;
+            color: #777;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            background-color: #e8f4fd;
+            color: #3498db;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .nav-link:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
         .desc {
             color: #666;
             font-size: 1rem;
+            margin-top: 5px;
         }
 
         .highlight-box {
@@ -192,46 +217,47 @@
     <div class="day-card">
         <div class="day-title">
             <div class="day-number">1</div>
-            <h2>Day 1：出發與王功體驗</h2>
+            <h2>Day 1：台北 → 彰化王功 → 嘉義</h2>
         </div>
         
         <div class="timeline">
             <div class="event">
-                <span class="time">07:00</span>
+                <span class="time">09:00 - 10:00</span>
                 <span class="title">台北出發</span>
-                <span class="desc">不用太早趕路，王功下午才開始。</span>
+                <span class="desc">悠閒出發，避開上班尖峰時段。</span>
             </div>
 
             <div class="event">
-                <span class="time">10:00</span>
+                <span class="time">11:30 - 12:30</span>
                 <span class="title">中繼休息：清水服務區</span>
-                <span class="desc">停 40～60 分鐘，讓小孩下車走走、舒緩坐車疲勞。</span>
+                <span class="address">台中市清水區吳厝里吳厝二街89號</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=清水服務區" class="nav-link" target="_blank">📍 開啟導航</a>
+                <span class="desc">下車走走、上廁所，也可在此簡單用午餐。</span>
             </div>
 
             <div class="event">
-                <span class="time">11:30 - 13:00</span>
-                <span class="title">鹿港老街吃午餐</span>
-                <span class="desc">鹿港好停車、選擇多，適合小孩散步。簡單逛逛即可。</span>
-            </div>
-
-            <div class="event">
-                <span class="time">13:30 - 17:00</span>
+                <span class="time">15:30 - 17:30</span>
                 <span class="title">王功漁港：挖蛤蜊體驗</span>
+                <span class="address">彰化縣芳苑鄉王功漁港</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=王功漁港" class="nav-link" target="_blank">📍 開啟導航</a>
                 <div class="highlight-box">
-                    14:00 正式開始挖蛤蜊。幼兒通常玩 2-2.5 小時就很滿足。
+                    <strong>16:00 已預約挖蛤蜊。</strong><br>
+                    建議 15:30 抵達準備，玩到傍晚剛好涼爽。
                 </div>
             </div>
 
             <div class="event">
-                <span class="time">17:00 - 19:00</span>
-                <span class="title">前往嘉義</span>
-                <span class="desc">車程約 1.5 小時，適合小朋友在車上小睡。</span>
+                <span class="time">17:30 - 18:00</span>
+                <span class="title">離開王功，前往嘉義</span>
+                <span class="desc">車程約 1 小時 15 分鐘，小朋友適合在車上小睡。</span>
             </div>
 
             <div class="event">
-                <span class="time">19:00</span>
+                <span class="time">19:30</span>
                 <span class="title">入住：鉅陞嘉義亮點旅店</span>
-                <span class="desc">抵達飯店，享受輕鬆的夜晚。</span>
+                <span class="address">嘉義市西區仁愛路560號</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=鉅陞嘉義亮點旅店" class="nav-link" target="_blank">📍 開啟導航</a>
+                <span class="desc">辦理入住，享受嘉義美食與放鬆夜晚。</span>
             </div>
         </div>
     </div>
@@ -247,17 +273,19 @@
         <div class="options-grid">
             <div class="option-card">
                 <h3>⚡ 放電型：Chiayi Park</h3>
+                <span class="address">嘉義市東區啟明路226號</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=嘉義公園" class="nav-link" target="_blank">📍 開啟導航</a>
                 <ul>
                     <li>完全免費</li>
                     <li>小孩超能跑</li>
-                    <li>無門票時間壓力</li>
                 </ul>
             </div>
             <div class="option-card">
                 <h3>🐱 動物型：萌寵村親子樂園</h3>
+                <span class="address">嘉義縣水上鄉寬士村15鄰崎子頭700號</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=萌寵村親子樂園" class="nav-link" target="_blank">📍 開啟導航</a>
                 <ul>
                     <li>3 歲小孩通常超愛</li>
-                    <li>行程相對輕鬆</li>
                     <li>拍照非常好看</li>
                 </ul>
             </div>
@@ -273,17 +301,16 @@
             <div class="event">
                 <span class="time">13:30 - 14:00</span>
                 <span class="title">北返台北</span>
-                <span class="desc">帶著滿滿回憶回家，不會太晚到家。</span>
+                <span class="desc">帶著滿滿回憶回家。</span>
             </div>
         </div>
     </div>
 
     <div class="footer-note">
-        <p>💡 整體規劃：去程精神好排重體力王功，第二天輕鬆玩不趕時間。</p>
+        <p>💡 提示：點擊「開啟導航」可直接啟動 Google Maps。</p>
         <p>© 2026 行程規劃工具</p>
     </div>
 </div>
 
 </body>
 </html>
- 
