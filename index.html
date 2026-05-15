@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>行程規劃：嘉義親子二日遊</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -75,21 +77,13 @@
             font-weight: bold;
         }
 
-        .map-container {
+        .map-box {
             width: 100%;
-            background: #fff;
+            height: 300px;
             border-radius: 12px;
-            padding: 10px;
-            margin-bottom: 25px;
-            border: 1px solid #eee;
-            text-align: center;
-        }
-
-        .map-svg {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            z-index: 1;
         }
 
         .timeline {
@@ -211,30 +205,10 @@
     <div class="day-card">
         <div class="day-title">
             <div class="day-number">1</div>
-            <h2>Day 1：南下嘉義之途</h2>
+            <h2>Day 1：南下路線圖</h2>
         </div>
 
-        <div class="map-container">
-            <svg class="map-svg" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
-                <!-- Path -->
-                <path d="M50 30 L150 50 L250 80 L350 120" stroke="#3498db" stroke-width="4" fill="none" stroke-dasharray="8 4" />
-                <!-- Stops -->
-                <circle cx="50" cy="30" r="6" fill="#2c3e50" />
-                <text x="55" y="20" font-size="12" font-weight="bold">台北</text>
-                
-                <circle cx="150" cy="50" r="5" fill="#e67e22" />
-                <text x="155" y="45" font-size="11">清水服務區</text>
-                
-                <circle cx="250" cy="80" r="7" fill="#e74c3c" />
-                <text x="255" y="75" font-size="12" font-weight="bold">王功挖蛤蜊</text>
-                
-                <circle cx="350" cy="120" r="6" fill="#2ecc71" />
-                <text x="310" y="135" font-size="12" font-weight="bold">嘉義飯店</text>
-                
-                <!-- Legend -->
-                <text x="10" y="145" font-size="10" fill="#999">Day 1 路線示意圖</text>
-            </svg>
-        </div>
+        <div id="map1" class="map-box"></div>
         
         <div class="timeline">
             <div class="event">
@@ -255,7 +229,6 @@
             <div class="event">
                 <span class="time">19:30</span>
                 <span class="title">入住：鉅陞嘉義亮點旅店</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=鉅陞嘉義亮點旅店" class="nav-link" target="_blank">📍 導航</a>
             </div>
         </div>
     </div>
@@ -264,42 +237,10 @@
     <div class="day-card">
         <div class="day-title">
             <div class="day-number">2</div>
-            <h2>Day 2：皮克敏散步之旅</h2>
+            <h2>Day 2：嘉義市區皮克敏路線</h2>
         </div>
 
-        <div class="map-container">
-            <svg class="map-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                <!-- Circular Loop Path -->
-                <rect x="80" y="40" width="240" height="120" rx="60" stroke="#2ecc71" stroke-width="3" fill="none" stroke-dasharray="6 3" />
-                
-                <!-- Spots on Loop -->
-                <circle cx="80" cy="100" r="5" fill="#27ae60" />
-                <text x="15" y="105" font-size="10">嘉義車站</text>
-                
-                <circle cx="100" cy="60" r="5" fill="#27ae60" />
-                <text x="40" y="55" font-size="10">文創園區/美術館</text>
-                
-                <circle cx="200" cy="40" r="5" fill="#27ae60" />
-                <text x="180" y="30" font-size="10">第一市場 (午餐)</text>
-                
-                <circle cx="300" cy="60" r="5" fill="#27ae60" />
-                <text x="310" y="55" font-size="10">文化公園</text>
-                
-                <circle cx="320" cy="100" r="5" fill="#27ae60" />
-                <text x="330" y="105" font-size="10">文學館</text>
-                
-                <circle cx="300" cy="140" r="5" fill="#27ae60" />
-                <text x="310" y="155" font-size="10">棒球場</text>
-                
-                <circle cx="200" cy="160" r="5" fill="#27ae60" />
-                <text x="180" y="175" font-size="10">木工實驗室</text>
-                
-                <circle cx="100" cy="140" r="5" fill="#27ae60" />
-                <text x="40" y="155" font-size="10">博物館/檜意森活村</text>
-
-                <text x="10" y="190" font-size="10" fill="#999">Day 2 皮克敏環狀路線示意</text>
-            </svg>
-        </div>
+        <div id="map2" class="map-box"></div>
 
         <div class="timeline">
             <div class="event pikmin">
@@ -333,6 +274,48 @@
         <p>© 2026 行程規劃工具</p>
     </div>
 </div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    // Day 1 Map
+    const map1 = L.map('map1').setView([24.2, 120.7], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap'
+    }).addTo(map1);
+
+    const stops1 = [
+        { name: "台北", lat: 25.0478, lng: 121.5170 },
+        { name: "清水服務區", lat: 24.3292, lng: 120.6151 },
+        { name: "王功漁港", lat: 23.9681, lng: 120.3275 },
+        { name: "嘉義亮點旅店", lat: 23.4795, lng: 120.4415 }
+    ];
+
+    const latlngs1 = stops1.map(s => [s.lat, s.lng]);
+    L.polyline(latlngs1, {color: 'blue', dashArray: '5, 10'}).addTo(map1);
+    stops1.forEach(s => L.marker([s.lat, s.lng]).addTo(map1).bindPopup(s.name));
+
+    // Day 2 Map (Chiayi City)
+    const map2 = L.map('map2').setView([23.48, 120.45], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap'
+    }).addTo(map2);
+
+    const stops2 = [
+        { name: "嘉義車站", lat: 23.4791, lng: 120.4411 },
+        { name: "文創園區", lat: 23.4782, lng: 120.4428 },
+        { name: "市立美術館", lat: 23.4779, lng: 120.4435 },
+        { name: "中央市場", lat: 23.4785, lng: 120.4503 },
+        { name: "文化公園", lat: 23.4761, lng: 120.4505 },
+        { name: "文學館", lat: 23.4792, lng: 120.4556 },
+        { name: "市立棒球場", lat: 23.4831, lng: 120.4645 },
+        { name: "博物館", lat: 23.4856, lng: 120.4534 }
+    ];
+
+    const latlngs2 = stops2.map(s => [s.lat, s.lng]);
+    L.polyline([...latlngs2, latlngs2[0]], {color: 'green', weight: 4}).addTo(map2);
+    stops2.forEach(s => L.marker([s.lat, s.lng]).addTo(map2).bindPopup(s.name));
+</script>
 
 </body>
 </html>
