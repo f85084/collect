@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>行程規劃：嘉義親子二日遊 (含皮克敏 Mini Walk)</title>
+    <title>行程規劃：嘉義親子二日遊</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -45,12 +45,6 @@
             font-size: 2.5rem;
         }
 
-        header p {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
         .day-card {
             background: var(--card-bg);
             border-radius: 15px;
@@ -79,6 +73,23 @@
             justify-content: center;
             margin-right: 15px;
             font-weight: bold;
+        }
+
+        .map-container {
+            width: 100%;
+            background: #fff;
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 25px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .map-svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .timeline {
@@ -137,13 +148,6 @@
             margin: 2px 0;
         }
 
-        .address {
-            font-size: 0.85rem;
-            color: #777;
-            display: block;
-            margin-bottom: 5px;
-        }
-
         .nav-link {
             display: inline-block;
             background-color: #e8f4fd;
@@ -153,17 +157,6 @@
             border-radius: 5px;
             font-size: 0.85rem;
             font-weight: bold;
-            margin-top: 5px;
-        }
-
-        .nav-link:hover {
-            background-color: #3498db;
-            color: white;
-        }
-
-        .desc {
-            color: #666;
-            font-size: 1rem;
             margin-top: 5px;
         }
 
@@ -196,7 +189,6 @@
             border-radius: 10px;
             font-weight: bold;
             margin-top: 20px;
-            box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
         }
 
         .footer-note {
@@ -205,12 +197,6 @@
             color: #888;
             margin-top: 40px;
         }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -218,51 +204,58 @@
 <div class="container">
     <header>
         <h1>嘉義親子二日遊</h1>
-        <p>台北出發 ‧ 王功挖蛤蜊 ‧ 皮克敏市區散步</p>
+        <p>台北 ‧ 王功 ‧ 皮克敏 Mini Walk</p>
     </header>
 
     <!-- Day 1 -->
     <div class="day-card">
         <div class="day-title">
             <div class="day-number">1</div>
-            <h2>Day 1：台北 → 彰化王功 → 嘉義</h2>
+            <h2>Day 1：南下嘉義之途</h2>
+        </div>
+
+        <div class="map-container">
+            <svg class="map-svg" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+                <!-- Path -->
+                <path d="M50 30 L150 50 L250 80 L350 120" stroke="#3498db" stroke-width="4" fill="none" stroke-dasharray="8 4" />
+                <!-- Stops -->
+                <circle cx="50" cy="30" r="6" fill="#2c3e50" />
+                <text x="55" y="20" font-size="12" font-weight="bold">台北</text>
+                
+                <circle cx="150" cy="50" r="5" fill="#e67e22" />
+                <text x="155" y="45" font-size="11">清水服務區</text>
+                
+                <circle cx="250" cy="80" r="7" fill="#e74c3c" />
+                <text x="255" y="75" font-size="12" font-weight="bold">王功挖蛤蜊</text>
+                
+                <circle cx="350" cy="120" r="6" fill="#2ecc71" />
+                <text x="310" y="135" font-size="12" font-weight="bold">嘉義飯店</text>
+                
+                <!-- Legend -->
+                <text x="10" y="145" font-size="10" fill="#999">Day 1 路線示意圖</text>
+            </svg>
         </div>
         
         <div class="timeline">
             <div class="event">
                 <span class="time">09:00 - 10:00</span>
                 <span class="title">台北出發</span>
-                <span class="desc">悠閒出發，避開上班尖峰時段。</span>
             </div>
-
             <div class="event">
                 <span class="time">11:30 - 12:30</span>
-                <span class="title">中繼休息：清水服務區</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=清水服務區" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">下車走走，也可在此簡單用午餐。</span>
+                <span class="title">清水服務區</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=清水服務區" class="nav-link" target="_blank">📍 導航</a>
             </div>
-
             <div class="event">
                 <span class="time">15:30 - 17:30</span>
-                <span class="title">王功漁港：挖蛤蜊體驗</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=王功漁港" class="nav-link" target="_blank">📍 開啟導航</a>
-                <div class="highlight-box">
-                    <strong>16:00 已預約挖蛤蜊。</strong><br>
-                    建議 15:30 抵達準備，玩到傍晚剛好涼爽。
-                </div>
+                <span class="title">王功漁港 (挖蛤蜊)</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=王功漁港" class="nav-link" target="_blank">📍 導航</a>
+                <div class="highlight-box">16:00 已預約</div>
             </div>
-
-            <div class="event">
-                <span class="time">17:30 - 18:00</span>
-                <span class="title">離開王功，前往嘉義</span>
-                <span class="desc">車程約 1 小時 15 分鐘。</span>
-            </div>
-
             <div class="event">
                 <span class="time">19:30</span>
                 <span class="title">入住：鉅陞嘉義亮點旅店</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=鉅陞嘉義亮點旅店" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">辦理入住，享受嘉義美食。</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=鉅陞嘉義亮點旅店" class="nav-link" target="_blank">📍 導航</a>
             </div>
         </div>
     </div>
@@ -271,79 +264,72 @@
     <div class="day-card">
         <div class="day-title">
             <div class="day-number">2</div>
-            <h2>Day 2：嘉義市區皮克敏散步之旅</h2>
+            <h2>Day 2：皮克敏散步之旅</h2>
         </div>
 
-        <div class="highlight-box" style="border-left-color: #2ecc71; background: #f0fff4;">
-            <strong>💡 皮克敏玩家提示：</strong><br>
-            在下列地點挑戰 2000 步可獲得限定飾品。建議步行以利刷步數！
+        <div class="map-container">
+            <svg class="map-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Circular Loop Path -->
+                <rect x="80" y="40" width="240" height="120" rx="60" stroke="#2ecc71" stroke-width="3" fill="none" stroke-dasharray="6 3" />
+                
+                <!-- Spots on Loop -->
+                <circle cx="80" cy="100" r="5" fill="#27ae60" />
+                <text x="15" y="105" font-size="10">嘉義車站</text>
+                
+                <circle cx="100" cy="60" r="5" fill="#27ae60" />
+                <text x="40" y="55" font-size="10">文創園區/美術館</text>
+                
+                <circle cx="200" cy="40" r="5" fill="#27ae60" />
+                <text x="180" y="30" font-size="10">第一市場 (午餐)</text>
+                
+                <circle cx="300" cy="60" r="5" fill="#27ae60" />
+                <text x="310" y="55" font-size="10">文化公園</text>
+                
+                <circle cx="320" cy="100" r="5" fill="#27ae60" />
+                <text x="330" y="105" font-size="10">文學館</text>
+                
+                <circle cx="300" cy="140" r="5" fill="#27ae60" />
+                <text x="310" y="155" font-size="10">棒球場</text>
+                
+                <circle cx="200" cy="160" r="5" fill="#27ae60" />
+                <text x="180" y="175" font-size="10">木工實驗室</text>
+                
+                <circle cx="100" cy="140" r="5" fill="#27ae60" />
+                <text x="40" y="155" font-size="10">博物館/檜意森活村</text>
+
+                <text x="10" y="190" font-size="10" fill="#999">Day 2 皮克敏環狀路線示意</text>
+            </svg>
         </div>
 
         <div class="timeline">
             <div class="event pikmin">
                 <span class="time">09:30</span>
-                <span class="title">嘉義文創園區<span class="pikmin-tag">🎨 美術館</span></span>
-                <a href="https://www.google.com/maps/search/?api=1&query=嘉義文化創意產業園區" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">起點。領取金苗、挑戰 2000 步。</span>
+                <span class="title">嘉義文創/美術館<span class="pikmin-tag">🎨</span></span>
             </div>
-
-            <div class="event pikmin">
-                <span class="time">10:30</span>
-                <span class="title">嘉義市立美術館<span class="pikmin-tag">🎨 美術館</span></span>
-                <a href="https://www.google.com/maps/search/?api=1&query=嘉義市立美術館" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">就在文創園區對面，收集美術館分類。</span>
-            </div>
-
             <div class="event pikmin">
                 <span class="time">11:30</span>
-                <span class="title">中央第一市場 (午餐)<span class="pikmin-tag">👗 服飾店</span></span>
-                <a href="https://www.google.com/maps/search/?api=1&query=嘉義市中央第一市場" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">推薦：林聰明沙鍋魚頭、阿宏師火雞肉飯。</span>
+                <span class="title">中央市場 (午餐)<span class="pikmin-tag">👗</span></span>
             </div>
-
             <div class="event pikmin">
                 <span class="time">13:00</span>
-                <span class="title">嘉義文化公園<span class="pikmin-tag">🍀 公園</span></span>
-                <a href="https://www.google.com/maps/search/?api=1&query=嘉義文化公園" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">活動核心點。5/30-31 有實體贈品。</span>
+                <span class="title">文化公園<span class="pikmin-tag">🍀</span></span>
             </div>
-
-            <div class="event pikmin">
-                <span class="time">14:30</span>
-                <span class="title">嘉義文學館<span class="pikmin-tag">📚 圖書館</span></span>
-                <a href="https://www.google.com/maps/search/?api=1&query=嘉義文學館" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">東門町 1923。適合在此喝杯咖啡稍作休息。</span>
-            </div>
-
             <div class="event pikmin">
                 <span class="time">15:30</span>
-                <span class="title">嘉義市立棒球場<span class="pikmin-tag">🏟️ 體育場</span></span>
-                <a href="https://www.google.com/maps/search/?api=1&query=嘉義市立棒球場" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">KANO 園區，場地寬大好刷步數。</span>
+                <span class="title">嘉義棒球場/KANO<span class="pikmin-tag">🏟️</span></span>
             </div>
-
-            <div class="event pikmin">
-                <span class="time">16:30</span>
-                <span class="title">嘉義木工驗證實驗室<span class="pikmin-tag">🔧 五金行</span></span>
-                <a href="https://www.google.com/maps/search/?api=1&query=嘉義木工驗證實驗室" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">收集較稀有的五金行分類。</span>
-            </div>
-
             <div class="event pikmin">
                 <span class="time">17:30</span>
-                <span class="title">嘉義市立博物館<span class="pikmin-tag">🎁 禮品貼紙</span></span>
-                <a href="https://www.google.com/maps/search/?api=1&query=嘉義市立博物館" class="nav-link" target="_blank">📍 開啟導航</a>
-                <span class="desc">終點。附近檜意森活村氣氛極佳。</span>
+                <span class="title">博物館/檜意森活村<span class="pikmin-tag">🎁</span></span>
             </div>
         </div>
 
         <a href="https://www.google.com/maps/dir/%E5%90%89%E7%BE%A9%E7%81%AB%E8%BB%8A%E7%AB%99/%E5%90%89%E7%BE%A9%E6%96%87%E5%8C%96%E5%82%B5%E6%84%8F%E7%94%A2%E6%A5%AD%E5%9C%92%E5%8D%80/%E5%90%89%E7%BE%A9%E5%B8%82%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A8/%E5%90%89%E7%BE%A9%E5%B8%82%E4%B8%AD%E5%A4%AE%E7%AC%AC%E4%B8%80%E5%B8%82%E5%A0%B4/%E5%90%89%E7%BE%A9%E6%96%87%E5%8C%96%E5%85%AC%E5%9C%92/%E5%90%89%E7%BE%A9%E6%96%87%E5%AD%B8%E9%A4%A8/%E5%90%89%E7%BE%A9%E5%B8%82%E7%AB%8B%E6%A3%92%E7%90%83%E5%A0%B4/%E5%90%89%E7%BE%A9%E6%9C%A8%E5%B7%A5%E9%A9%97%E8%AD%89%E5%AF%A6%E9%A9%93%E5%AE%A4/%E5%90%89%E7%BE%A9%E5%B8%82%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8/" class="route-button" target="_blank">
-            🗺️ 開啟 Day 2 完整步行導航路線
+            🗺️ 開啟 Day 2 完整步行導航
         </a>
     </div>
 
     <div class="footer-note">
-        <p>💡 提示：點擊「開啟導航」可直接啟動 Google Maps。</p>
         <p>© 2026 行程規劃工具</p>
     </div>
 </div>
